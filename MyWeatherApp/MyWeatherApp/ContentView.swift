@@ -13,20 +13,9 @@ struct ContentView: View {
             BackgroundView(topColor: .blue, bottomColor: Color("lightBlue"))
             
             VStack {
-                Text("West Palm Beach, FL")
-                    .font(.system(size: 32, weight: .medium, design: .default))
-                    .padding()
-                VStack(spacing: 8) {
-                    Image(systemName: "cloud.sun.fill")
-                        .renderingMode(.original)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 180, height: 180)
-                    
-                    Text("89°")
-                        .font(.system(size: 70, weight: .medium))
-                }
-                .padding(.bottom, 40)
+                CityTextView(cityName: "West Palm Beach")
+                
+                MainWeatherView(imageName: "cloud.sun.fill", temperature: 89)
                 
                 HStack(spacing: 20) {
                     WeatherDayView(dayOfWeek: "Mon", imageName: "cloud.sun.fill", temperature: 78)
