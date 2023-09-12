@@ -27,70 +27,18 @@ struct ContentView: View {
                         .font(.system(size: 70, weight: .medium))
                 }
                 
-                HStack {
-                    VStack(spacing: 1) {
-                        Text("TUE")
-                            .font(.system(size: 24, weight: .medium))
-                            .padding(.bottom, 2)
-                        Image(systemName: "cloud.sun.fill")
-                            .renderingMode(.original)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
-                        
-                        Text("86°")
-                            .font(.system(size: 32, weight: .light))
-                            .padding(.bottom, 2)
-                    }
-                    .padding()
+                Spacer()
+                
+                HStack(spacing: 20) {
+                    WeatherDayView(dayOfWeek: "Mon", imageName: "cloud.sun.fill", temperature: 78)
                     
-                    VStack(spacing: 1) {
-                        Text("WED")
-                            .font(.system(size: 24, weight: .medium))
-                            .padding(.bottom, 2)
-                        Image(systemName: "cloud.sun.fill")
-                            .renderingMode(.original)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
-                        
-                        Text("86°")
-                            .font(.system(size: 32, weight: .light))
-                            .padding(.bottom, 2)
-                    }
-                    .padding()
+                    WeatherDayView(dayOfWeek: "Tue", imageName: "cloud.heavyrain.fill", temperature: 78)
                     
-                    VStack(spacing: 1) {
-                        Text("THU")
-                            .font(.system(size: 24, weight: .medium))
-                            .padding(.bottom, 2)
-                        Image(systemName: "cloud.sun.fill")
-                            .renderingMode(.original)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
-                        
-                        Text("86°")
-                            .font(.system(size: 32, weight: .light))
-                            .padding(.bottom, 2)
-                    }
-                    .padding()
+                    WeatherDayView(dayOfWeek: "Wed", imageName: "cloud.fill", temperature: 78)
                     
-                    VStack(spacing: 1) {
-                        Text("FRI")
-                            .font(.system(size: 24, weight: .medium))
-                            .padding(.bottom, 2)
-                        Image(systemName: "cloud.sun.fill")
-                            .renderingMode(.original)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50)
-                        
-                        Text("86°")
-                            .font(.system(size: 32, weight: .light))
-                            .padding(.bottom, 2)
-                    }
-                    .padding()
+                    WeatherDayView(dayOfWeek: "Thu", imageName: "wind", temperature: 78)
+                    
+                    WeatherDayView(dayOfWeek: "Fri", imageName: "cloud.sun.fill", temperature: 78)
                     
                 }
                 
@@ -105,3 +53,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
