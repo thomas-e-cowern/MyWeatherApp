@@ -93,7 +93,7 @@ iOSInjectionProject/
 .DS_Store
 
 # Config file
- MyWeatherApp/MyWeatherApp/Config.xcconfig
+MyWeatherApp/MyWeatherApp/Config.xcconfig
 
 # Extras
 MyWeatherApp/MyWeatherApp.xcodeproj/project.pbxproj
