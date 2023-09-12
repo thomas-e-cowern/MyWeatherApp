@@ -15,6 +15,7 @@
 		4D6843F62AB0FCC300D36B53 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6843F52AB0FCC300D36B53 /* BackgroundView.swift */; };
 		4D6843F82AB0FE0800D36B53 /* CityTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6843F72AB0FE0800D36B53 /* CityTextView.swift */; };
 		4D6843FA2AB0FEDE00D36B53 /* MainWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6843F92AB0FEDE00D36B53 /* MainWeatherView.swift */; };
+		4D6843FC2AB100F400D36B53 /* WeatherButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6843FB2AB100F400D36B53 /* WeatherButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		4D6843F52AB0FCC300D36B53 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		4D6843F72AB0FE0800D36B53 /* CityTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTextView.swift; sourceTree = "<group>"; };
 		4D6843F92AB0FEDE00D36B53 /* MainWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWeatherView.swift; sourceTree = "<group>"; };
+		4D6843FB2AB100F400D36B53 /* WeatherButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				4D6843EB2AB0DB5800D36B53 /* Preview Content */,
 				4D6843F72AB0FE0800D36B53 /* CityTextView.swift */,
 				4D6843F92AB0FEDE00D36B53 /* MainWeatherView.swift */,
+				4D6843FB2AB100F400D36B53 /* WeatherButton.swift */,
 			);
 			path = MyWeatherApp;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D6843E82AB0DB5700D36B53 /* ContentView.swift in Sources */,
+				4D6843FC2AB100F400D36B53 /* WeatherButton.swift in Sources */,
 				4D6843F82AB0FE0800D36B53 /* CityTextView.swift in Sources */,
 				4D6843FA2AB0FEDE00D36B53 /* MainWeatherView.swift in Sources */,
 				4D6843E62AB0DB5700D36B53 /* MyWeatherAppApp.swift in Sources */,

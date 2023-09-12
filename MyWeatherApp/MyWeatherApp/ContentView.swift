@@ -27,7 +27,6 @@ struct ContentView: View {
                     WeatherDayView(dayOfWeek: "Thu", imageName: "wind", temperature: 78)
                     
                     WeatherDayView(dayOfWeek: "Fri", imageName: "cloud.sun.fill", temperature: 78)
-                    
                 }
                 
                 Spacer()
@@ -35,13 +34,8 @@ struct ContentView: View {
                 Button {
                     print("Tapped")
                 } label: {
-                    Text("Change Day Time")
-                        .foregroundColor(.black)
+                    WeatherButton(title: "Change Day Time", textColor: .blue, backgroundColor: .white)
                 }
-                .buttonStyle(.bordered)
-                .background(Color.white)
-                .font(.system(size: 20, weight: .bold, design: .default))
-                .cornerRadius(10)
                 
                 Spacer()
             }
@@ -54,6 +48,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
-
