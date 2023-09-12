@@ -11,6 +11,8 @@ struct ContentView: View {
     
     @State private var isNight = false
     
+    let apiKey = (Bundle.main.infoDictionary?["WS_API_KEY"] as? String)!
+    
     var body: some View {
         ZStack {
             BackgroundView(isNight: $isNight)
@@ -36,7 +38,9 @@ struct ContentView: View {
                 
                 Button {
                     isNight.toggle()
+                    let apiKey = (Bundle.main.infoDictionary?["WS_API_KEY"] as? String)!
                     print("\(isNight)")
+                    print(apiKey)
                 } label: {
                     WeatherButton(title: "Change Day Time", textColor: .blue, backgroundColor: .white)
                 }
