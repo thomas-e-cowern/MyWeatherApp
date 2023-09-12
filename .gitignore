@@ -94,3 +94,7 @@ iOSInjectionProject/
 
 # Config file
  MyWeatherApp/MyWeatherApp/Config.xcconfig
+
+# Extras
+MyWeatherApp/MyWeatherApp.xcodeproj/project.pbxproj
+MyWeatherApp/MyWeatherApp.xcodeproj/project.xcworkspace/xcuserdata/thomascowern.xcuserdatad/UserInterfaceState.xcuserstate
