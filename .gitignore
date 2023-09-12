@@ -93,5 +93,4 @@ iOSInjectionProject/
 .DS_Store
 
 # Config file
-Config.xcconfig
-
+ MyWeatherApp/MyWeatherApp/Config.xcconfig
