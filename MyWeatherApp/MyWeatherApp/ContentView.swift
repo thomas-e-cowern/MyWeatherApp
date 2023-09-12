@@ -16,20 +16,20 @@ struct ContentView: View {
             BackgroundView(topColor: isNight ? .black : .blue, bottomColor: isNight ? .gray : Color("lightBlue"))
             
             VStack {
-                CityTextView(cityName: "West Palm Beach")
+                CityTextView(cityName: "West Palm Beach", isNight: isNight)
                 
-                MainWeatherView(imageName: "cloud.sun.fill", temperature: 89)
+                MainWeatherView(imageName: "cloud.sun.fill", temperature: 89, isNight: isNight)
                 
                 HStack(spacing: 20) {
-                    WeatherDayView(dayOfWeek: "Mon", imageName: "cloud.sun.fill", temperature: 78)
+                    WeatherDayView(dayOfWeek: "Mon", imageName: "cloud.sun.fill", temperature: 78, isNight: isNight)
                     
-                    WeatherDayView(dayOfWeek: "Tue", imageName: "cloud.heavyrain.fill", temperature: 78)
+                    WeatherDayView(dayOfWeek: "Tue", imageName: "cloud.heavyrain.fill", temperature: 78, isNight: isNight)
                     
-                    WeatherDayView(dayOfWeek: "Wed", imageName: "cloud.fill", temperature: 78)
+                    WeatherDayView(dayOfWeek: "Wed", imageName: "cloud.fill", temperature: 78, isNight: isNight)
                     
-                    WeatherDayView(dayOfWeek: "Thu", imageName: "wind", temperature: 78)
+                    WeatherDayView(dayOfWeek: "Thu", imageName: "wind", temperature: 78, isNight: isNight)
                     
-                    WeatherDayView(dayOfWeek: "Fri", imageName: "cloud.sun.fill", temperature: 78)
+                    WeatherDayView(dayOfWeek: "Fri", imageName: "cloud.sun.fill", temperature: 78, isNight: isNight)
                 }
                 
                 Spacer()
