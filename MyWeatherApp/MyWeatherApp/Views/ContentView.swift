@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var isNight = false
     
     let apiKey = (Bundle.main.infoDictionary?["WS_API_KEY"] as? String)!
+    let networking = Networking()
     
     var body: some View {
         ZStack {
@@ -37,10 +38,11 @@ struct ContentView: View {
                 Spacer()
                 
                 Button {
+                    print("Button Clicked")
                     isNight.toggle()
-                    let apiKey = (Bundle.main.infoDictionary?["WS_API_KEY"] as? String)!
-                    print("\(isNight)")
-                    print(apiKey)
+                    Task {
+                        await getCurrentWeather()
+                    }
                 } label: {
                     WeatherButton(title: "Change Day Time", textColor: .blue, backgroundColor: .white)
                 }
@@ -48,6 +50,15 @@ struct ContentView: View {
                 Spacer()
             }
         }
+    }
+    
+    func getCurrentWeather() async {
+        do {
+            try await networking.getCurrentWeather()
+        } catch {
+            
+        }
+        
     }
 }
 
