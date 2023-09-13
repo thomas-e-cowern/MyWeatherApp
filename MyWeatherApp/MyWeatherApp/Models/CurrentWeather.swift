@@ -7,8 +7,8 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct Welcome: Codable {
+// MARK: - APIResponse
+struct APIResponse: Codable {
     let location: Location
     let current: Current
 }

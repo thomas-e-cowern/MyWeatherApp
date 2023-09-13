@@ -13,15 +13,16 @@ struct ContentView: View {
     
     let apiKey = (Bundle.main.infoDictionary?["WS_API_KEY"] as? String)!
     let networking = Networking()
+    @State private var currentWeather: APIResponse? = nil
     
     var body: some View {
         ZStack {
             BackgroundView(isNight: $isNight)
             
             VStack {
-                CityTextView(cityName: "West Palm Beach", isNight: isNight)
+                CityTextView(cityName: "\(currentWeather?.location.name ?? "")", isNight: isNight)
                 
-                MainWeatherView(imageName: "cloud.sun.fill", temperature: 89, isNight: isNight)
+                MainWeatherView(imageName: "cloud.sun.fill", temperature: Int(currentWeather?.current.tempF ?? 0), isNight: isNight)
                 
                 HStack(spacing: 20) {
                     WeatherDayView(dayOfWeek: "Mon", imageName: "cloud.sun.fill", temperature: 78, isNight: isNight)
@@ -54,9 +55,9 @@ struct ContentView: View {
     
     func getCurrentWeather() async {
         do {
-            try await networking.getCurrentWeather()
+            currentWeather = try await networking.getCurrentWeather()
         } catch {
-            
+            print(error.localizedDescription)
         }
         
     }
