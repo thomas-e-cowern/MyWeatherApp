@@ -15,9 +15,10 @@ struct Networking {
     
     func getCurrentWeather() async throws -> APIResponse {
 
-        let currentWeatherEndpoint = "https://api.weatherapi.com/v1/current.json?key=\(apiKey)&q=33417&aqi=no"
+//        let currentWeatherEndpoint = "https://api.weatherapi.com/v1/current.json?key=\(apiKey)&q=33417&aqi=no"
+        let forecastWeatherEndpoint = "https://api.weatherapi.com/v1/forecast.json?key=\(apiKey)&q=33417&days=3&aqi=no&alerts=no"
 
-        guard let url = URL(string: currentWeatherEndpoint) else {
+        guard let url = URL(string: forecastWeatherEndpoint) else {
             throw WAPIErrors.invalidURL
         }
         
@@ -31,7 +32,7 @@ struct Networking {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let apiResponse = try JSONDecoder().decode(APIResponse.self, from: data)
-            print("Decoded: \(String(describing: apiResponse))")
+            print("Decoded: \(String(describing: apiResponse.forecast.forecastday[0]))")
             return apiResponse
         } catch {
             print("Decode error: \(error)")

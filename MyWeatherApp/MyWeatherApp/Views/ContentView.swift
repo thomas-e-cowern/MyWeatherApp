@@ -14,6 +14,7 @@ struct ContentView: View {
     let apiKey = (Bundle.main.infoDictionary?["WS_API_KEY"] as? String)!
     let networking = Networking.shared
     @State private var currentWeather: APIResponse? = nil
+    @State privae 
     
     var body: some View {
         ZStack {

@@ -11,6 +11,7 @@ import Foundation
 struct APIResponse: Codable {
     let location: Location
     let current: Current
+    let forecast: Forecast
 }
 
 // MARK: - Current
