@@ -28,20 +28,21 @@ struct ContentView: View {
                 HStack(spacing: 20) {
                     
                     VStack {
-                        Image(getWeatherIconSubstring(string: currentWeather?.forecast.forecastday[0].day.condition.icon ?? ""))
-                        Text("\(currentWeather?.forecast.forecastday[0].day.avgtempF ?? 0.0)")
+                        Text(getDayOfWeek(currentWeather?.forecast.forecastday[1].date ?? "2000-01-01"))
+                        Image(getWeatherIconSubstring(string: currentWeather?.forecast.forecastday[1].day.condition.icon ?? ""))
+                        Text("\(currentWeather?.forecast.forecastday[1].day.avgtempF ?? 0.0)")
                     }
                     
                     
-                    WeatherDayView(dayOfWeek: "Mon", imageName: "cloud.sun.fill", temperature: 78, isNight: isNight)
-                    
-                    WeatherDayView(dayOfWeek: "Tue", imageName: "cloud.heavyrain.fill", temperature: 78, isNight: isNight)
-                    
-                    WeatherDayView(dayOfWeek: "Wed", imageName: "cloud.fill", temperature: 78, isNight: isNight)
-                    
-                    WeatherDayView(dayOfWeek: "Thu", imageName: "wind", temperature: 78, isNight: isNight)
-                    
-                    WeatherDayView(dayOfWeek: "Fri", imageName: "cloud.sun.fill", temperature: 78, isNight: isNight)
+//                    WeatherDayView(dayOfWeek: "Mon", imageName: "cloud.sun.fill", temperature: 78, isNight: isNight)
+//                    
+//                    WeatherDayView(dayOfWeek: "Tue", imageName: "cloud.heavyrain.fill", temperature: 78, isNight: isNight)
+//                    
+//                    WeatherDayView(dayOfWeek: "Wed", imageName: "cloud.fill", temperature: 78, isNight: isNight)
+//                    
+//                    WeatherDayView(dayOfWeek: "Thu", imageName: "wind", temperature: 78, isNight: isNight)
+//                    
+//                    WeatherDayView(dayOfWeek: "Fri", imageName: "cloud.sun.fill", temperature: 78, isNight: isNight)
                 }
                 
                 Spacer()
@@ -71,6 +72,29 @@ struct ContentView: View {
             print(error.localizedDescription)
         }
         
+    }
+    
+    func getDayOfWeek(_ date:String) -> String {
+        
+        let weekDays = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ]
+
+        let formatter  = DateFormatter()
+        formatter.dateFormat = "yyy-MM-dd"
+        guard let myDate = formatter.date(from: date) else { return "Date Error" }
+        
+        let myCalendar = Calendar(identifier: .gregorian)
+        let weekDay = myCalendar.component(.weekday, from: myDate)
+        
+        
+        return weekDays[weekDay-1]
     }
     
     func getWeatherIconSubstring(string: String) -> String {
