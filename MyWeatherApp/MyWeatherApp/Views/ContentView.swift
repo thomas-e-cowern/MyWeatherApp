@@ -25,24 +25,11 @@ struct ContentView: View {
                 
                 MainWeatherView(imageName: getWeatherIconSubstring(string: currentWeather?.current.condition.icon ?? "weather/64x64/day/113"), temperature: Double(currentWeather?.current.tempF ?? 0.0), isNight: isNight)
                 
-                HStack(spacing: 20) {
+                HStack(spacing: 40) {
                     
-                    VStack {
-                        Text(getDayOfWeek(currentWeather?.forecast.forecastday[1].date ?? "2000-01-01"))
-                        Image(getWeatherIconSubstring(string: currentWeather?.forecast.forecastday[1].day.condition.icon ?? ""))
-                        Text("\(currentWeather?.forecast.forecastday[1].day.avgtempF ?? 0.0)")
+                    ForEach(0...2, id: \.self) { day in
+                        WeatherDayView(dayOfWeek: getDayOfWeek(currentWeather?.forecast.forecastday[day].date ?? "2000-01-01"), imageName: getWeatherIconSubstring(string: currentWeather?.current.condition.icon ?? "weather/64x64/day/113"), temperature: currentWeather?.forecast.forecastday[day].day.avgtempF ?? 0.0, isNight: isNight)                            
                     }
-                    
-                    
-//                    WeatherDayView(dayOfWeek: "Mon", imageName: "cloud.sun.fill", temperature: 78, isNight: isNight)
-//                    
-//                    WeatherDayView(dayOfWeek: "Tue", imageName: "cloud.heavyrain.fill", temperature: 78, isNight: isNight)
-//                    
-//                    WeatherDayView(dayOfWeek: "Wed", imageName: "cloud.fill", temperature: 78, isNight: isNight)
-//                    
-//                    WeatherDayView(dayOfWeek: "Thu", imageName: "wind", temperature: 78, isNight: isNight)
-//                    
-//                    WeatherDayView(dayOfWeek: "Fri", imageName: "cloud.sun.fill", temperature: 78, isNight: isNight)
                 }
                 
                 Spacer()

@@ -12,7 +12,7 @@ struct WeatherDayView: View {
     
     var dayOfWeek: String
     var imageName: String
-    var temperature: Int
+    var temperature: Double
     var isNight: Bool
     
     var body: some View {
@@ -21,13 +21,13 @@ struct WeatherDayView: View {
                 .foregroundColor(isNight ? .white : .black)
                 .font(.system(size: 16, weight: .medium))
                 .padding(.bottom, 2)
-            Image(systemName: imageName)
+            Image(imageName)
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
             
-            Text("\(temperature)")
+            Text("\(temperature, specifier: "%.1f")")
                 .foregroundColor(isNight ? .white : .black)
                 .font(.system(size: 28, weight: .light))
                 .padding(.bottom, 2)
