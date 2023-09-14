@@ -20,10 +20,9 @@ struct ContentView: View {
             BackgroundView(isNight: $isNight)
             
             VStack {
-                CityTextView(cityName: "\(currentWeather?.location.name ?? "")", isNight: isNight)
-                Image("weather/64x64/night/116")
+                CityTextView(cityName: "\(currentWeather?.location.name ?? "Getting Your Location")", isNight: isNight)
                 
-                MainWeatherView(imageName: "cloud.sun.fill", temperature: Int(currentWeather?.current.tempF ?? 0), isNight: isNight)
+                MainWeatherView(imageName: getWeatherIconSubstring(string: currentWeather?.current.condition.icon ?? ""), temperature: Int(currentWeather?.current.tempF ?? 0), isNight: isNight)
                 
                 HStack(spacing: 20) {
                     WeatherDayView(dayOfWeek: "Mon", imageName: "cloud.sun.fill", temperature: 78, isNight: isNight)
@@ -52,6 +51,9 @@ struct ContentView: View {
                 Spacer()
             }
         }
+        .task {
+            await getCurrentWeather()
+        }
     }
     
     func getCurrentWeather() async {
@@ -61,6 +63,14 @@ struct ContentView: View {
             print(error.localizedDescription)
         }
         
+    }
+    
+    func getWeatherIconSubstring(string: String) -> String {
+        let start = string.dropFirst(21)
+        let end = start.dropLast(4)
+        let stringImage = String(end)
+        print(stringImage)
+        return stringImage
     }
 }
 

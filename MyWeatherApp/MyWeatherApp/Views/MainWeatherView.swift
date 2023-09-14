@@ -15,7 +15,7 @@ struct MainWeatherView: View {
     
     var body: some View {
         VStack(spacing: 8) {
-            Image(systemName: imageName)
+            Image(imageName)
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
