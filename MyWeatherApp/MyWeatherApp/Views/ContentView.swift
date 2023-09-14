@@ -14,7 +14,7 @@ struct ContentView: View {
     let apiKey = (Bundle.main.infoDictionary?["WS_API_KEY"] as? String)!
     let networking = Networking.shared
     @State private var currentWeather: APIResponse? = nil
-    @State privae 
+    @State private var forecast: APIResponse? = nil
     
     var body: some View {
         ZStack {
@@ -26,6 +26,13 @@ struct ContentView: View {
                 MainWeatherView(imageName: getWeatherIconSubstring(string: currentWeather?.current.condition.icon ?? "weather/64x64/day/113"), temperature: Double(currentWeather?.current.tempF ?? 0.0), isNight: isNight)
                 
                 HStack(spacing: 20) {
+                    
+                    VStack {
+                        Image(getWeatherIconSubstring(string: currentWeather?.forecast.forecastday[0].day.condition.icon ?? ""))
+                        Text("\(currentWeather?.forecast.forecastday[0].day.avgtempF ?? 0.0)")
+                    }
+                    
+                    
                     WeatherDayView(dayOfWeek: "Mon", imageName: "cloud.sun.fill", temperature: 78, isNight: isNight)
                     
                     WeatherDayView(dayOfWeek: "Tue", imageName: "cloud.heavyrain.fill", temperature: 78, isNight: isNight)
