@@ -22,7 +22,7 @@ struct ContentView: View {
             VStack {
                 CityTextView(cityName: "\(currentWeather?.location.name ?? "Getting Your Location")", isNight: isNight)
                 
-                MainWeatherView(imageName: getWeatherIconSubstring(string: currentWeather?.current.condition.icon ?? ""), temperature: Int(currentWeather?.current.tempF ?? 0), isNight: isNight)
+                MainWeatherView(imageName: getWeatherIconSubstring(string: currentWeather?.current.condition.icon ?? "weather/64x64/day/113"), temperature: Double(currentWeather?.current.tempF ?? 0.0), isNight: isNight)
                 
                 HStack(spacing: 20) {
                     WeatherDayView(dayOfWeek: "Mon", imageName: "cloud.sun.fill", temperature: 78, isNight: isNight)
