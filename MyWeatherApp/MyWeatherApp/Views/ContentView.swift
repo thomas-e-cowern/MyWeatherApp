@@ -17,38 +17,51 @@ struct ContentView: View {
     @State private var forecast: APIResponse? = nil
     
     var body: some View {
-        ZStack {
-            BackgroundView(isNight: $isNight)
-            
-            VStack {
-                CityTextView(cityName: "\(currentWeather?.location.name ?? "Getting Your Location")", isNight: isNight)
+        NavigationStack {
+            ZStack {
+                BackgroundView(isNight: $isNight)
                 
-                MainWeatherView(imageName: getWeatherIconSubstring(string: currentWeather?.current.condition.icon ?? "weather/64x64/day/113"), temperature: Double(currentWeather?.current.tempF ?? 0.0), isNight: isNight)
-                
-                HStack(spacing: 40) {
+                VStack {
+                    CityTextView(cityName: "\(currentWeather?.location.name ?? "Getting Your Location")", isNight: isNight)
                     
-                    ForEach(0...2, id: \.self) { day in
-                        WeatherDayView(dayOfWeek: getDayOfWeek(currentWeather?.forecast.forecastday[day].date ?? "2000-01-01"), imageName: getWeatherIconSubstring(string: currentWeather?.current.condition.icon ?? "weather/64x64/day/113"), temperature: currentWeather?.forecast.forecastday[day].day.avgtempF ?? 0.0, isNight: isNight)                            
+                    MainWeatherView(imageName: getWeatherIconSubstring(string: currentWeather?.current.condition.icon ?? "weather/64x64/day/113"), temperature: Double(currentWeather?.current.tempF ?? 0.0), isNight: isNight)
+                    
+                    HStack(spacing: 40) {
+                        
+                        ForEach(0...2, id: \.self) { day in
+                            
+                            NavigationLink {
+                                if let currentWeather = currentWeather {
+                                    WeatherDetailVIew(forecastday: currentWeather.forecast.forecastday[day])
+                                }
+                                
+                            } label: {
+                                WeatherDayView(dayOfWeek: getDayOfWeek(currentWeather?.forecast.forecastday[day].date ?? "2000-01-01"), imageName: getWeatherIconSubstring(string: currentWeather?.current.condition.icon ?? "weather/64x64/day/113"), temperature: currentWeather?.forecast.forecastday[day].day.maxtempF ?? 0.0, isNight: isNight)
+                            }
+                            
+                            
+//                            WeatherDayView(dayOfWeek: getDayOfWeek(currentWeather?.forecast.forecastday[day].date ?? "2000-01-01"), imageName: getWeatherIconSubstring(string: currentWeather?.current.condition.icon ?? "weather/64x64/day/113"), temperature: currentWeather?.forecast.forecastday[day].day.maxtempF ?? 0.0, isNight: isNight)
+                        }
                     }
-                }
-                
-                Spacer()
-                
-                Button {
-                    print("Button Clicked")
-                    isNight.toggle()
-                    Task {
-                        await getCurrentWeather()
+                    
+                    Spacer()
+                    
+                    Button {
+                        print("Button Clicked")
+                        isNight.toggle()
+                        Task {
+                            await getCurrentWeather()
+                        }
+                    } label: {
+                        WeatherButton(title: "Change Day Time", textColor: .blue, backgroundColor: .white)
                     }
-                } label: {
-                    WeatherButton(title: "Change Day Time", textColor: .blue, backgroundColor: .white)
+                    
+                    Spacer()
                 }
-                
-                Spacer()
             }
+            .task {
+                await getCurrentWeather()
         }
-        .task {
-            await getCurrentWeather()
         }
     }
     
