@@ -9,6 +9,8 @@ import Foundation
 
 struct Networking {
     
+    static let shared = Networking()
+    
     let apiKey = (Bundle.main.infoDictionary?["WS_API_KEY"] as? String)!
     
     func getCurrentWeather() async throws -> APIResponse {

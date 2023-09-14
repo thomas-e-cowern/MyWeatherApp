@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var isNight = false
     
     let apiKey = (Bundle.main.infoDictionary?["WS_API_KEY"] as? String)!
-    let networking = Networking()
+    let networking = Networking.shared
     @State private var currentWeather: APIResponse? = nil
     
     var body: some View {
