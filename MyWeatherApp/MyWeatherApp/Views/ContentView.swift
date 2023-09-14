@@ -21,6 +21,7 @@ struct ContentView: View {
             
             VStack {
                 CityTextView(cityName: "\(currentWeather?.location.name ?? "")", isNight: isNight)
+                Image("weather/64x64/night/116")
                 
                 MainWeatherView(imageName: "cloud.sun.fill", temperature: Int(currentWeather?.current.tempF ?? 0), isNight: isNight)
                 
