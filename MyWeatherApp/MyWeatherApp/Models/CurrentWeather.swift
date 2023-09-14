@@ -74,6 +74,8 @@ enum WeatherText: String, Codable {
     case overcast = "Overcast"
     case partlyCloudy = "Partly cloudy"
     case sunny = "Sunny"
+    case mist = "Mist"
+    case patchyRainPossible = "Patchy rain possible"
 }
 
 enum WindDir: String, Codable {
@@ -84,6 +86,7 @@ enum WindDir: String, Codable {
     case ne = "NE"
     case nne = "NNE"
     case nnw = "NNW"
+    case nw = "NW"
 }
 
 // MARK: - Location

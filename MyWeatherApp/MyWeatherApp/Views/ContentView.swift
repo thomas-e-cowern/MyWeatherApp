@@ -32,7 +32,7 @@ struct ContentView: View {
                             
                             NavigationLink {
                                 if let currentWeather = currentWeather {
-                                    WeatherDetailVIew(forecastday: currentWeather.forecast.forecastday[day])
+                                    WeatherDetailVIew(forecastday: currentWeather.forecast.forecastday[day], isNight: isNight)
                                 }
                                 
                             } label: {
