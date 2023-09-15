@@ -38,9 +38,6 @@ struct ContentView: View {
                             } label: {
                                 WeatherDayView(dayOfWeek: getDayOfWeek(currentWeather?.forecast.forecastday[day].date ?? "2000-01-01"), imageName: getWeatherIconSubstring(string: currentWeather?.current.condition.icon ?? "weather/64x64/day/113"), temperature: currentWeather?.forecast.forecastday[day].day.maxtempF ?? 0.0, isNight: isNight)
                             }
-                            
-                            
-//                            WeatherDayView(dayOfWeek: getDayOfWeek(currentWeather?.forecast.forecastday[day].date ?? "2000-01-01"), imageName: getWeatherIconSubstring(string: currentWeather?.current.condition.icon ?? "weather/64x64/day/113"), temperature: currentWeather?.forecast.forecastday[day].day.maxtempF ?? 0.0, isNight: isNight)
                         }
                     }
                     

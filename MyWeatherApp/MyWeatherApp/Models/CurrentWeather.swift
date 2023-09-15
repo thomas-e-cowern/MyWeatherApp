@@ -76,6 +76,11 @@ enum WeatherText: String, Codable {
     case sunny = "Sunny"
     case mist = "Mist"
     case patchyRainPossible = "Patchy rain possible"
+    case thunderyOutbreaksPossible = "Thundery outbreaks possible"
+    case heavyRain = "Heavy rain"
+    case patchyLightDrizzle = "Patchy light drizzle"
+    case patchyLightRain = "Patchy light rain"
+    case moderateOrHeavyRainWithThunder = "Moderate or heavy rain with thunder"
 }
 
 enum WindDir: String, Codable {
@@ -87,6 +92,9 @@ enum WindDir: String, Codable {
     case nne = "NNE"
     case nnw = "NNW"
     case nw = "NW"
+    case se = "SE"
+    case sse = "SSE"
+    case s = "S"
 }
 
 // MARK: - Location
@@ -145,7 +153,7 @@ struct Day: Codable {
     let maxtempC, maxtempF, mintempC, mintempF: Double
     let avgtempC, avgtempF, maxwindMph, maxwindKph: Double
     let totalprecipMm, totalprecipIn: Double
-    let totalsnowCM, avgvisKM, avgvisMiles, avghumidity: Int
+    let totalsnowCM, avgvisKM, avgvisMiles, avghumidity: Double
     let dailyWillItRain, dailyChanceOfRain, dailyWillItSnow, dailyChanceOfSnow: Int
     let condition: Condition
     let uv: Int
