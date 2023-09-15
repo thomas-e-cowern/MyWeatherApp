@@ -58,8 +58,9 @@ struct ContentView: View {
             }
             .task {
                 await getCurrentWeather()
+            }
         }
-        }
+        .tint(Color.white)
     }
     
     func getCurrentWeather() async {
