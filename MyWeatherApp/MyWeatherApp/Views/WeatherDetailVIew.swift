@@ -25,6 +25,64 @@ struct WeatherDetailVIew: View {
                 
                 MainWeatherView(imageName: getWeatherIconSubstring(string: forecastday.day.condition.icon), temperature: forecastday.day.avgtempF, isNight: isNight)
                 
+                HStack {
+                    Image(systemName: "thermometer.low")
+                    Text("\(forecastday.day.mintempF, specifier: "%.1f")°")
+                        .font(.system(size: 24, weight: .medium))
+                        .foregroundColor(isNight ? .white : .black)
+                    
+                    Spacer()
+                        .frame(width: 120)
+                    
+                    Image(systemName: "thermometer.high")
+                    Text("\(forecastday.day.maxtempF, specifier: "%.1f")°")
+                        .font(.system(size: 24, weight: .medium))
+                        .foregroundColor(isNight ? .white : .black)
+                }
+                
+                Divider()
+                
+                HStack {
+                    Image(systemName: "wind")
+                    Text("\(forecastday.day.maxwindMph, specifier: "%.1f")mph")
+                        .font(.system(size: 24, weight: .medium))
+                        .foregroundColor(isNight ? .white : .black)
+                    
+                    Spacer()
+                        .frame(width: 100)
+                    
+                    Image(systemName: "drop")
+                    Text("\(forecastday.day.totalprecipIn, specifier: "%.1f")in")
+                        .font(.system(size: 24, weight: .medium))
+                        .foregroundColor(isNight ? .white : .black)
+                }
+                
+                Divider()
+                
+                HStack {
+                    Image(systemName: "humidity")
+                    Text("\(forecastday.day.avghumidity, specifier: "%.1f")%")
+                        .font(.system(size: 24, weight: .medium))
+                        .foregroundColor(isNight ? .white : .black)
+                    
+                    Spacer()
+                        .frame(width: 100)
+                    
+                    Image(systemName: "eye")
+                    Text("\(forecastday.day.totalprecipIn, specifier: "%.1f")mi")
+                        .font(.system(size: 24, weight: .medium))
+                        .foregroundColor(isNight ? .white : .black)
+                }
+                
+                Divider()
+                
+                HStack {
+                    Text("Chance of Rain: ")
+                    Text("\(forecastday.day.dailyChanceOfRain, specifier: "%.1f")%")
+                        .font(.system(size: 24, weight: .medium))
+                        .foregroundColor(isNight ? .white : .black)
+                }
+                
                 Spacer()
             }
         }
